@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<title>NC COVID-19 Testing Centers (2020)</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+		<style>
+				html, body, #map { width: 100%; height: 100%; margin: 0; background: #fff; }
+
+					body {
+						margin: 0;
+						padding: 0;
+						background: "whitesmoke";
+						font-family: "Nora", sans-serif;
+						color: #3d3d3d;
+					}
+
+					h1 {
+						position: absolute;
+						margin-top: 0;
+						top: 10px;
+						left: 45px;
+						font-size: 2em;
+						font-family: "Nora", serif;
+						letter-spacing: .04em;
+						padding: 10px 15px;
+						background: rgba(256, 256, 256);
+						border: 1px solid grey;
+						border-radius: 3px;
+						z-index: 800;
+					}
+
+					h2 {
+						font-family: "Noto Sans", serif;
+						letter-spacing: .04em;
+					}
+
+					#map {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						width: 100%;
+					}
+
+					section {
+						position: absolute;
+						bottom: 0;
+						left: 10px;
+						width: 280px;
+						margin: 20px auto;
+						padding: 0 15px;
+						background: rgba(256, 256, 256);
+						border: 1px solid grey;
+						border-radius: 3px;
+						z-index: 800;
+					}
+
+					p {
+						font-size: .9em;
+						line-height: 1.5em;
+					}
+
+					a {
+						color: #005daa;
+						text-decoration: none;
+					}
+
+					a:hover {
+						text-decoration: underline;
+					}
+					.legend {
+		font-family: "Nora"
+		line-height: 40px;
+		font-size: 16px;
+		width: 190px;
+		color: #333333;
+		padding: 6px 8px;
+		background: white;
+		background: rgba(255,255,255,0.5);
+		box-shadow: 0 0 15px rgba(0,0,0,0.2);
+		border-radius: 5px;
+		}
+		.legend i {
+		width: 20px;
+		height: 20px;
+		float: left;
+		margin-right: 8px;
+		opacity: 0.9;
+		}
+		.legend img {
+		width: 16px;
+		height: 16px;
+		margin-right: 3px;
+		float: left;
+		}
+		.legend p {
+		font-size: 14px;
+		line-height: 20px;
+		margin: 0;
+		}
+
+		</style>
+		<script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.4/chroma.min.js"></script>
+		<script src="https://kit.fontawesome.com/ad65908734.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>COVID-19 Testing Sites, North Carolina
+
+	 </h1>
+
+	<div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="./BasicTheme_files/13570" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(523px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13570(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(523px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13569" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(267px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13571" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(779px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13569(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(267px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13571(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(779px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13570(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(523px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13570(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(523px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13569(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(267px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13571(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(779px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13569(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(267px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13571(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(779px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13568" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(11px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13572" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1035px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13568(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(11px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13572(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1035px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13568(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(11px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13572(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1035px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13568(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(11px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13572(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1035px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13567" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-245px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13573" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1291px, 124px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13567(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-245px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13573(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1291px, 380px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13567(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-245px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13573(2)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1291px, -132px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13567(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-245px, 636px, 0px); opacity: 1;"><img alt="" src="./BasicTheme_files/13573(3)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1291px, 636px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"><img src="./BasicTheme_files/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(655px, 336px, 0px);"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><img src="./BasicTheme_files/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(655px, 336px, 0px); z-index: 336;"></div><div class="leaflet-pane leaflet-tooltip-pane"><div class="leaflet-tooltip leaflet-zoom-animated leaflet-tooltip-left" style="opacity: 0.9; transform: translate3d(556px, 292.5px, 0px);">Top of Lift #2</div></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://asulearn.appstate.edu/pluginfile.php/1449446/mod_resource/content/1/index.html#" title="Zoom in">+</a><a class="leaflet-control-zoom-out" href="https://asulearn.appstate.edu/pluginfile.php/1449446/mod_resource/content/1/index.html#" title="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community</div></div></div></div>
+
+	<section>
+		<h2>COVID-19 Testing Sites</h2>
+
+		<p>COVID-19 cases are at an <a href="https://www.newsobserver.com/news/coronavirus/article247648210.html#">all-time high</a> in North Carolina. Use this map to find testing and screening sites near you, and make a plan for staying safe and getting tested if you begin showing symptoms.
+			Make sure to say updated on <a href="https://covid19.ncdhhs.gov/guidance#">CDC guidelines</a> for North Carolina.
+		</p>
+
+		<p>This map shows tesing sites in North Carolina. Click on the icons to learn more about each site.
+		 This data was compiled by the GISCorps, a volunteer-driven effort to make COVID information available to the public. Original datasets can be found <a href="https://appalachian.maps.arcgis.com/home/item.html?id=11fe8f374c344549815a716c8472832f#">here</a>.
+		</p>
+
+		<p>Map authored by Jess McClelland</p>
+
+	</section>
+<!-- Our web map and content will go here -->
+<div id="map"></div>
+<script>
+			// 1. Create a map object.
+			var mymap = L.map('map', {
+			center: [35.1954,-79.4695], //centered to pinehurst, nc
+			zoom: 7, //this line adjusts the starting zoom level of the map
+			maxZoom: 20,//this line sets the maximum zoom level
+			minZoom: -20,//this line sets the minimum zoom level
+			detectRetina: true // detect whether the sceen is high resolution or not.
+			});
+			// 2. Add a base map.
+			var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(mymap);
+
+		var testing_centers = null;
+
+		var colors = chroma.scale('Set1').mode('lch').colors(2);
+
+		for (i = 0; i < 3; i++) {
+		$('head').append($("<style> .marker-color-" + (i + 1).toString() + " { color: " + colors[i] + "; font-size: 18px; text-shadow: 0 0 3px #ffffff;} </style>"));
+}
+
+		testing_centers = L.geoJson.ajax("assets/testing_centers.geojson",{
+			onEachFeature: function (feature, layer) {
+				layer.bindPopup(feature.properties.services_o);
+			},
+
+
+
+			pointToLayer: function (feature, latlng) {
+		    var id = 0;
+		    if (feature.properties.services_o == "testing only") { id = 0; }
+		    else if (feature.properties.services_o == "screening and testing")  { id = 1; }
+		    else { id = 2;}
+		    return L.marker(latlng, {icon: L.divIcon({className: 'fas fa-radiation-alt marker-color-' + (id + 1).toString() })});
+		  },
+				attribution: 'NC COVID-19 Testing Centers | GISCorps Data'
+		});
+		testing_centers.addTo(mymap);
+
+		colors = chroma.scale('Greens').colors(5);
+
+						function setColor(density) {
+						    var id = 0;
+						    if (density > 1241) { id = 4; }
+						    else if (density > 828 && density <= 1240) { id = 3; }
+						    else if (density > 414 && density <= 827) { id = 2; }
+						    else if (density > 0 &&  density <= 413) { id = 1; }
+						    else  { id = 0; }
+						    return colors[id];
+						}
+						function style(feature) {
+								return {
+								fillColor: setColor(feature.properties.total_test),
+								fillOpacity: 0.4,
+								weight: 2,
+								opacity: 1,
+								color: '#b4b4b4',
+								dashArray: '4'
+								};
+								}
+		L.geoJson.ajax("assets/county_join.geojson", {
+style: style
+}).addTo(mymap);
+
+
+		var legend = L.control({position: 'topright'});
+			legend.onAdd = function () {
+				var div = L.DomUtil.create('div', 'legend');
+				div.innerHTML += '<hr><b>Site Type<b><br />';
+				//the next 3 lines call the airbnb icon along with its proper color
+				//notice the names of the Airbnb property types listed within the <p> tags at the end of the lines
+			div.innerHTML += '<i class="fas fa-radiation-alt marker-color-1"></i><p>Testing Only</p>';
+			div.innerHTML += '<i class="fas fa-radiation-alt marker-color-2"></i><p>Testing and Screening</p>';
+
+			return div;
+			};
+			// 11. Add a legend to map
+legend.addTo(mymap);
+
+L.control.scale({position: 'bottomright'}).addTo(mymap);
+
+
+
+
+
+</script>
+</body>
+</html>
